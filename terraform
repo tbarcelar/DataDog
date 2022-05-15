@@ -1,0 +1,63 @@
+.. Vai no diretorio que está o Terraform e cria um especifico para datadog 
+
+1 - exemplo mkdir terraform_config
+
+2 - Dentro do diretorio cria o arquivo main.tf 
+
+3 - Coloque o seguinte comando o arquivo
+
+
+
+
+terraform {
+  required_providers {
+    datadog = {
+      source = "DataDog/datadog"
+    }
+  }
+}
+
+# Configure the Datadog provider
+provider "datadog" {
+  api_key = "xxxxxxxxx"
+  app_key = "xxxxxxxxxxxxxxxx"
+}
+
+
+4 - Após editar o arquivo faça que o terraform inicie a comunicação com datadog
+
+$ Inicia o terraform 
+terraform init
+
+
+5 - Testando o terraform no datadog, vamos criar monitor para alerta de java 
+Para isso basta acrescentar no arquivo main,tf o seguinte comando .
+
+
+
+resource "datadog_monitor" "process_alert_example" {
+  name    = "Process Alert Monitor"
+  type    = "process alert"
+  message = "Multiple Java processes running on example-tag"
+  query   = "processes('java').over('example-tag').rollup('count').last('10m') > 1"
+  monitor_thresholds {
+    critical          = 1.0
+    critical_recovery = 0.0
+  }
+
+  notify_no_data    = false
+  renotify_interval = 60
+}
+
+
+
+6 - Salve o arquivo e coloque para atualizar as mudanças no terraform
+
+$ aplicar as mudanças
+terraform apply
+
+$ validar se está funcionando
+terraform validate
+
+$ excluir o terraform
+terraform destroy

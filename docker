@@ -1,20 +1,34 @@
 
-$ preparar ubuntu para receber datadog
-apt-get update
-apt-get install apt-transport-https  
-apt install curl
-apt install gnupg
+1 - Para baixar e instalar o agent no docker 
 
-$ baixar agent
-docker run -d --name dd-agent -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e DD_API_KEY=xxxxxxxxxxxx -e DD_SITE="datadoghq.com" gcr.io/datadoghq/agent:7
+docker run -d --name dd-agent -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxx -e DD_SITE="datadoghq.com" gcr.io/datadoghq/agent:7
 
+2 -  Ativar o agent
 
-$ verificar status do agent
+service datadog-agent start
+
+3 -  verificar status do agent
 service datadog-agent status
 
-$ configurar host
+4 -  configurar o agent
 cd /etc/datadog-agent
 vi datadog.yaml
 $ se não houver o vim instalar  > apt install vim
+
+
+************** Se quiser manipular aplicação de exemplo no datadog **********
+
+1 - Baixa diretamente do docker 
+
+https://hub.docker.com/r/spreecommerce/spree
+
+
+docker pull spreecommerce/spree
+
+2 - Executar aplicação 
+
+docker run --rm -it -p 3000:3000 spreecommerce/spree:3.6.4
+
+3 - Caso queira simular a navegação do site veja no local host
 
 
