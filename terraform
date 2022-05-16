@@ -61,3 +61,8 @@ terraform validate
 
 $ excluir o terraform
 terraform destroy
+
+
+## Se precisar de mais codigos para implementar siga a URL > https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/dashboard_list
+
+### NOta > os codigos na url citada é para acrescentar o item 3
