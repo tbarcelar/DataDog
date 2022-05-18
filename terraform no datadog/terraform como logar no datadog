@@ -1,0 +1,33 @@
+.. Vai no diretorio que está o Terraform e cria um especifico para datadog 
+
+1 - exemplo mkdir terraform_config
+
+2 - Dentro do diretorio cria o arquivo main.tf 
+
+3 - Coloque o seguinte comando o arquivo
+
+
+
+
+terraform {
+  required_providers {
+    datadog = {
+      source = "DataDog/datadog"
+    }
+  }
+}
+
+# Configure the Datadog provider
+provider "datadog" {
+  api_key = "xxxxxxxxx"
+  app_key = "xxxxxxxxxxxxxxxx"
+}
+
+
+
+
+4 - Após editar o arquivo faça que o terraform inicie a comunicação com datadog
+terraform init
+
+5 - aplicar as configurações
+terraform apply

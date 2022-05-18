@@ -1,0 +1,26 @@
+### Depois de criar a conexão cria outro arquivo para inserir as informações que 
+deseja que vá para o datadog_monitor
+
+Em baixo segue um exemplo de criar monitor de CPU 
+
+
+resource "datadog_monitor" "CPU"{
+  name = "CPU"
+  type = "metric alert"
+  message = "CPU usage alert"
+  query = "avg(last_1m):avg:system.cpu.system{*} by {host} > 60"
+  monitor_thresholds {
+    ok = 20
+    warning = 50
+    critical = 60
+}
+}
+{}
+notify_no_data    = false
+renotify_interval = 60
+}
+
+# Se deseja incluir mais monitor basta descrever logo abaixo >> resource "datadog_monitor" ......
+ 
+Aplicar a configuração
+$ terraform apply
