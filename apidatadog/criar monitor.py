@@ -13,10 +13,11 @@ monitor_options = {
     "no_data_timeframe": 20
 }
 
+
 api.Monitor.create(
     type="query alert",
-    query="avg(last_5m):sum:system.mem.free{host:host0} > 10",
-    name="Memoria",
+    query="avg(last_1m):avg:system.mem.free{*} by {host} > 10",
+    name="Memoria ",
     message="está alertando.",
     options=monitor_options
 )
