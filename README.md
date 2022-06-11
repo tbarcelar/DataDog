@@ -1,7 +1,7 @@
 # DataDog
  
 
-<img src="https://github.com/tbarcelar/DataDog/blob/main/datadog-log.JPG" width="950" height="300">
+<img src="https://github.com/tbarcelar/DataDog/blob/main/datadog-log.JPG" width="500" height="200">
 
 
 
