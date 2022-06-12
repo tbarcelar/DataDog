@@ -7,7 +7,7 @@
 
 
 ### Instalar Datadog 
-<a href="https://github.com/tbarcelar/DataDog/blob/main/instalacao/linux"> Linux"
+<a href="https://github.com/tbarcelar/DataDog/blob/main/instalacao/linux"> Linux  
 Docker <a href="https://github.com/tbarcelar/DataDog/blob/main/instalacao/docker">  
  
 ### API com Python
