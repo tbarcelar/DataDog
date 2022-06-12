@@ -19,13 +19,6 @@ service datadog-agent status
 $ configurar host
 cd /etc/datadog-agent
 vi datadog.yaml
-$ se não houver o vim instalar  > apt install vim
-
-
-$ ver log com editor VI
-:wq para salvar e sair 
-:q! para sair sem salvar
-
 
 $ remover 
 sudo apt-get remove datadog-agent -y
